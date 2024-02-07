@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ post.title }}</title>
+</head>
+<body>
+    <h1>{{ post.title }}</h1>
+    <p>{{ post.content }}</p>
+    <br>
+    <p>작성자: {{ post.author }}</p>
+    <p>게시일: {{ post.created_at }}</p>
+    <br>
+    <p>
+        <a href="{% url 'board' %}">게시판</a>으로 이동하기.
+    </p>
+</body>
+</html>

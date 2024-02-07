@@ -1,5 +1,5 @@
 from django import forms
-from .models import User
+from .models import CustomUser
 
 class UserLoginForm(forms.Form):
     username = forms.CharField(max_length=50)
@@ -10,5 +10,6 @@ class UserSignupForm(forms.ModelForm):
     password = forms.CharField(max_length=50, widget=forms.PasswordInput)
 
     class Meta:
-        model = User
+        model = CustomUser
         fields = ['username', 'password']
+

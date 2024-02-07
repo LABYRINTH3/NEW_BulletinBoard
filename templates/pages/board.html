@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Board</title>
+</head>
+<body>
+    <h1>게시판</h1>
+    <p>
+        <a href="{% url 'login' %}">게시글 작성</a>
+    </p>
+    <ul>
+        {% for post in posts %}
+            <li><a href="{% url 'post_detail' post_id=post.id %}">{{ post.title }}</a> - {{ post.author }} - {{ post.created_at }}</li>
+        {% endfor %}
+    </ul>
+
+</body>
+</html>
