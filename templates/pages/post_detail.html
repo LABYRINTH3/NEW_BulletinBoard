@@ -4,16 +4,65 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ post.title }}</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            height: 80vh;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            font-size: 30px;
+            color: #333;
+            margin-bottom: 30px;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 5px;
+        }
+        p {
+            font-size: 20px;
+            color: #555;
+            margin-bottom: 5px;
+        }
+        .author-date {
+            font-size: 13px;
+            color: #777;
+            margin-bottom: 10px;
+            text-align: right; /* Center-align the paragraph */
+        }
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .link {
+            position: absolute; /* Set position to absolute */
+            bottom: 30px; /* Adjust as needed */
+            left: 50%; /* Align horizontally to center */
+            transform: translateX(-50%); /* Move left by 50% of its own width */
+        }
+    </style>
 </head>
 <body>
-    <h1>{{ post.title }}</h1>
-    <p>{{ post.content }}</p>
-    <br>
-    <p>작성자: {{ post.author }}</p>
-    <p>게시일: {{ post.created_at }}</p>
-    <br>
-    <p>
-        <a href="{% url 'board' %}">게시판</a>으로 이동하기.
-    </p>
+    <div class="container">
+        <h1>{{ post.title }}</h1>
+        <p>{{ post.content }}</p>
+        <br>
+        <p class="author-date">작성자: {{ post.author }} | 게시일: {{ post.created_at }}</p>
+        <br>
+        <p class="link">
+            <a href="{% url 'board' %}">게시판</a>으로 이동하기
+        </p>
+    </div>
 </body>
 </html>

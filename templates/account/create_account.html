@@ -5,19 +5,79 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Create Account</title>
+    <style>
+        /* CSS 스타일 추가 */
+        body {
+            display: flex;
+            justify-content: center; /* 요소를 수평으로 가운데 정렬 */
+            align-items: center; /* 요소를 수직으로 가운데 정렬 */
+            height: 100vh; /* 화면 전체 높이만큼 세로 중앙 정렬 */
+            background: hsla(277, 79%, 84%, 1);
+            background: linear-gradient(90deg, hsla(277, 79%, 84%, 1) 0%, hsla(204, 95%, 77%, 1) 100%);
+            background: -moz-linear-gradient(90deg, hsla(277, 79%, 84%, 1) 0%, hsla(204, 95%, 77%, 1) 100%);
+            background: -webkit-linear-gradient(90deg, hsla(277, 79%, 84%, 1) 0%, hsla(204, 95%, 77%, 1) 100%);
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#DDB4F6", endColorstr="#8DD0FC", GradientType=1 );
+            flex-direction: column; /* 요소들을 수직으로 배치 */
+        }
+
+        form {
+            width: 400px; /* 폼 너비 설정 */
+            padding: 20px; /* 내부 여백 설정 */
+            background-color: #ffffff; /* 폼 배경색 설정 */
+            border-radius: 10px; /* 폼 테두리 반경 설정 */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* 그림자 효과 추가 */
+        }
+
+        h1 {
+            text-align: center; /* 제목 가운데 정렬 */
+            color: #333333; /* 제목 색상 설정 */
+        }
+        
+        input {
+            width: 50%; /* Make the input fields full-width within the form */
+            box-sizing: border-box; /* Include padding and border in the element's total width and height */
+            margin-bottom: 10px; /* Add some space between input fields */
+        }
+
+
+        button[type="submit"] {
+            background-color: #007bff; /* 버튼 배경색 설정 */
+            color: white; /* 버튼 글자색 설정 */
+            padding: 10px 20px; /* 버튼 내부 여백 설정 */
+            border: none; /* 버튼 테두리 없애기 */
+            border-radius: 5px; /* 버튼 테두리 반경 설정 */
+            cursor: pointer; /* 마우스 커서 설정 */
+            display: block; /* 블록 요소로 변경하여 가로 너비 전체 차지 */
+            margin: 0 auto; /* 수평 가운데 정렬 */
+        }
+
+        p {
+            text-align: center; /* 문단 가운데 정렬 */
+            margin-top: 20px; /* 위쪽 여백 추가 */
+        }
+        
+        a {
+            color: #007bff; /* 링크 색상 설정 */
+            text-decoration: none; /* 링크 밑줄 제거 */
+        }
+
+        /* 경고 메시지 스타일 */
+        .message {
+            text-align: center; /* 메시지 가운데 정렬 */
+            color: red; /* 메시지 색상 설정 */
+        }
+    </style>
 </head>
 <body>
-    <h1>회원가입</h1>
     <form method="POST">
         {% csrf_token %}
+        <h1>회원가입</h1>
         {{ form.as_p }}
-        <button type="submit">Create Account</button>
+        <button type="submit">계정 생성</button>
     </form>
-    <p>
-        이미 계정이 있으신가요? <a href="{% url 'login' %}">로그인 페이지</a>로 이동하기.
-    </p>
+    <p>이미 계정이 있으신가요? <a href="{% url 'login' %}">로그인 페이지</a>로 이동하기.</p>
     {% for message in messages %}
-        <p>{{ message }}</p>
+        <p class="message">{{ message }}</p>
     {% endfor %}
 </body>
 </html>

@@ -4,17 +4,85 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Board</title>
+    <style>
+        /* General styles for the entire page */
+        body {
+            font-family: Arial, sans-serif; /* Choose your preferred font family */
+            background-color: #d5bdaf; /* Background color for the entire page */
+            margin: 0;
+            padding: 0;
+        }
+        /* Container styles */
+        .container {
+            max-width: 800px; /* Adjust the maximum width of the container */
+            margin: 20px auto; /* Center the container horizontally with 20px top and bottom margin */
+            padding: 20px; /* Add some padding inside the container */
+            background-color: #F8EFE5; /* Background color for the container */
+            border-radius: 8px; /* Add rounded corners to the container */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a subtle shadow effect */
+        }
+        /* Header styles */
+        h1 {
+            color: black; /* Set the color of the heading */
+            border-bottom: 1px solid #000; /* Add a bottom border to the heading */
+            padding-bottom: 10px; /* Add some padding below the heading */
+        }
+        /* Link styles */
+        .create-post {
+            display: inline-block;
+            border: 1px solid #000;
+            padding: 5px 10px;
+            border-radius: 5px;
+            background-color: #E3D5CA;
+        }
+        .create-post a {
+            text-decoration: none; /* Remove underline from links */
+            color: #000; /* Set the color of links */
+        }
+        .create-post a:hover {
+            text-decoration: underline; /* Add underline on hover */
+        }
+        /* List styles */
+        ul {
+            list-style-type: none; /* Remove bullet points from the list */
+            padding: 0; /* Remove default padding */
+        }
+        /* List item styles */
+        li {
+            border-bottom: 1px solid #ddd; /* Add a bottom border to each list item */
+            padding: 10px 0; /* Add some vertical padding to each list item */
+        }
+        li:last-child {
+            border-bottom: none; /* Remove the bottom border from the last list item */
+        }
+        /* Link styles */
+        a {
+            text-decoration: none; /* Remove underline from links */
+            color: #000; /* Set the color of links */
+        }
+        a:hover {
+            text-decoration: underline; /* Add underline on hover */
+        }
+    </style>
 </head>
 <body>
-    <h1>게시판</h1>
-    <p>
-        <a href="{% url 'login' %}">게시글 작성</a>
-    </p>
-    <ul>
-        {% for post in posts %}
-            <li><a href="{% url 'post_detail' post_id=post.id %}">{{ post.title }}</a> - {{ post.author }} - {{ post.created_at }}</li>
-        {% endfor %}
-    </ul>
-
+    <!-- Main content container -->
+    <div class="container">
+        <!-- Heading -->
+        <h1>게시판</h1>
+        <!-- Link to create a new post -->
+        <p class="create-post">
+            <a href="{% url 'login' %}" style="color: #000;">게시글 작성</a>
+        </p>
+        <!-- List of posts -->
+        <ul>
+            {% for post in posts %}
+                <li>
+                    <!-- Link to view post details -->
+                    <a href="{% url 'post_detail' post_id=post.id %}">{{ post.title }}</a> - {{ post.author }} - {{ post.created_at }}
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
 </body>
 </html>

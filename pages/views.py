@@ -26,3 +26,7 @@ def post_detail(request, post_id):
 def board(request):
     posts = Post.objects.all()
     return render(request, 'pages/board.html', {'posts': posts})
+
+
+def home(request):
+    return render(request, 'pages/home.html')

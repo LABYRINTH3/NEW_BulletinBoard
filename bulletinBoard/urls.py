@@ -17,7 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from accounts.views import login_view, signup_view
-from pages.views import create_post, post_detail, board
+from pages.views import create_post, post_detail, board, home
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -26,6 +26,6 @@ urlpatterns = [
     path('create/<int:user_id>/', create_post, name='create_post'),
     path('post/<int:post_id>/', post_detail, name='post_detail'),
     path('board/', board, name='board'),
-    path('', board),
+    path('', home),
 ]
 

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>내 페이지</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background: hsla(311, 74%, 87%, 1);
+            background: linear-gradient(90deg, hsla(311, 74%, 87%, 1) 0%, hsla(275, 19%, 88%, 1) 100%);
+            background: -moz-linear-gradient(90deg, hsla(311, 74%, 87%, 1) 0%, hsla(275, 19%, 88%, 1) 100%);
+            background: -webkit-linear-gradient(90deg, hsla(311, 74%, 87%, 1) 0%, hsla(275, 19%, 88%, 1) 100%);
+            filter:progid:DXImageTransform.Microsoft.gradient( startColorstr="#F6C4ED", endColorstr="#E1DAE6", GradientType=1 );
+            display: flex; /* body를 flex container로 설정하여 아이템들을 가운데 정렬합니다. */
+            justify-content: center; /* 수평으로 가운데 정렬합니다. */
+            align-items: center; /* 수직으로 가운데 정렬합니다. */
+            height: 100vh; /* 화면 전체 높이를 차지하도록 설정합니다. */
+        }
+        .container {
+            text-align: center;
+        }
+        h1 {
+            color: #333; /* 제목 색상은 원하는 색상으로 변경하세요 */
+            font-size: 36px; /* 원하는 크기로 설정하세요 */
+            font-weight: bold; /* 볼드체로 설정합니다 */
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 30px; /* 가로 패딩을 늘려서 버튼 길이를 늘립니다. */
+            background-color: #007bff;
+            color: #fff;
+            text-decoration: none;
+            margin: 10px;
+            border-radius: 20px; /* 곡률을 더 늘려줍니다. */
+            transition: background-color 0.3s ease;
+            width: 200px; /* 버튼 가로 길이를 조정하세요 */
+        }
+        .btn:hover {
+            background-color: #0056b3; /* 버튼에 마우스를 올렸을 때 배경색 변경은 원하는 색상으로 변경하세요 */
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>LABYRINTH3</h1>
+    <a href="{% url 'board' %}" class="btn">게시판</a>
+    <a href="{% url 'login' %}" class="btn">로그인</a>
+</div>
+
+</body>
+</html>
