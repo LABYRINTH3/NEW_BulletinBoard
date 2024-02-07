@@ -21,7 +21,7 @@
         }
 
         form {
-            width: 400px; /* 폼 너비 설정 */
+            width: 450px; /* 폼 너비 설정 */
             padding: 20px; /* 내부 여백 설정 */
             background-color: #ffffff; /* 폼 배경색 설정 */
             border-radius: 10px; /* 폼 테두리 반경 설정 */
@@ -34,7 +34,10 @@
         }
         
         input {
-            width: 50%; /* Make the input fields full-width within the form */
+            width: calc(100% - 20px); /* Make the input fields full-width within the form */
+            border-radius: 5px;
+            padding: 10px;
+            border: 1px solid #ccc;
             box-sizing: border-box; /* Include padding and border in the element's total width and height */
             margin-bottom: 10px; /* Add some space between input fields */
         }

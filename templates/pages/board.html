@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Board</title>
+    <title>게시판</title>
     <style>
         /* General styles for the entire page */
         body {
@@ -42,18 +42,19 @@
         .create-post a:hover {
             text-decoration: underline; /* Add underline on hover */
         }
-        /* List styles */
-        ul {
-            list-style-type: none; /* Remove bullet points from the list */
-            padding: 0; /* Remove default padding */
+        /* Table styles */
+        table {
+            width: 100%; /* Make the table fill its container */
+            border-collapse: collapse; /* Collapse the borders between cells */
+            margin-top: 20px; /* Add some space above the table */
         }
-        /* List item styles */
-        li {
-            border-bottom: 1px solid #ddd; /* Add a bottom border to each list item */
-            padding: 10px 0; /* Add some vertical padding to each list item */
+        th, td {
+            padding: 8px; /* Add padding inside table cells */
+            text-align: left; /* Align text to the left within cells */
+            border-bottom: 1px solid #ddd; /* Add a bottom border to table cells */
         }
-        li:last-child {
-            border-bottom: none; /* Remove the bottom border from the last list item */
+        th {
+            background-color: #E3D5CA; /* Set background color for table header cells */
         }
         /* Link styles */
         a {
@@ -69,20 +70,32 @@
     <!-- Main content container -->
     <div class="container">
         <!-- Heading -->
-        <h1>게시판</h1>
+        <h1><a href="{% url 'home' %}">게시판</a></h1>
         <!-- Link to create a new post -->
         <p class="create-post">
             <a href="{% url 'login' %}" style="color: #000;">게시글 작성</a>
         </p>
         <!-- List of posts -->
-        <ul>
-            {% for post in posts %}
-                <li>
-                    <!-- Link to view post details -->
-                    <a href="{% url 'post_detail' post_id=post.id %}">{{ post.title }}</a> - {{ post.author }} - {{ post.created_at }}
-                </li>
-            {% endfor %}
-        </ul>
+        <table>
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>제목</th>
+                    <th>글쓴이</th>
+                    <th>작성 시간</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for post in posts %}
+                    <tr>
+                        <td>{{ post.id }}</td>
+                        <td><a href="{% url 'post_detail' post_id=post.id %}">{{ post.title }}</a></td>
+                        <td>{{ post.author }}</td>
+                        <td>{{ post.created_at }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
     </div>
 </body>
 </html>

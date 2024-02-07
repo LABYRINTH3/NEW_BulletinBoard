@@ -26,6 +26,6 @@ urlpatterns = [
     path('create/<int:user_id>/', create_post, name='create_post'),
     path('post/<int:post_id>/', post_detail, name='post_detail'),
     path('board/', board, name='board'),
-    path('', home),
+    path('', home, name='home'),
 ]
 
