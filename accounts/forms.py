@@ -21,4 +21,3 @@ class UserSignupForm(forms.ModelForm):
 
         if password1 and password2 and password1 != password2:
             raise forms.ValidationError("비밀번호가 일치하지 않습니다. 다시 입력해주세요.")
-

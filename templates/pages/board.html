@@ -69,12 +69,24 @@
 <body>
     <!-- Main content container -->
     <div class="container">
+        <!-- Displaying current user's account information -->
+        <div style="position: absolute; top: 10px; right: 10px;">
+            {% if user.is_authenticated %}
+                Logged in as: {{ user.customuser.CustomUser }} 
+{#                | <a href="{% url 'logout' %}">Logout</a>#}
+            {% else %}
+                <a href="{% url 'login' %}" style="color: #000;">Login</a> | <a href="{% url 'signup' %}" style="color: #000;">Signup</a>
+            {% endif %}
+        </div>
+
         <!-- Heading -->
         <h1><a href="{% url 'home' %}">게시판</a></h1>
+        
         <!-- Link to create a new post -->
         <p class="create-post">
             <a href="{% url 'login' %}" style="color: #000;">게시글 작성</a>
         </p>
+        
         <!-- List of posts -->
         <table>
             <thead>
@@ -98,4 +110,5 @@
         </table>
     </div>
 </body>
+
 </html>

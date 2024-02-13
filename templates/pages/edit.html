@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ post.title }}</title>
+</head>
+<body>
+    <form action="{% url 'update' post.id %}" method="POST">
+        {% csrf_token %}
+        <label for="title">제목</label>
+        <input type="text" name="title" id="title" value="{{post.title}}">
+        <br>
+{#        <label for="writer">작성자</label>#}
+{#        <input type="text" name="writer" id="author" value="{{post.author}}">#}
+{#        <br>#}
+        <label for="content">내용</label>
+        <textarea name="content" id="content" cols="30" rows="10">{{post.content}}</textarea>
+        <button type="submit">제출</button>
+    </form>
+</body>
+</html>

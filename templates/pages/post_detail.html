@@ -17,19 +17,19 @@
             margin: 20px auto;
             background-color: #fff;
             padding: 20px;
-            border-radius: 5px;
+            border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
         h1 {
             font-size: 30px;
-            color: #333;
+            color: #000;
             margin-bottom: 30px;
             border-bottom: 1px solid #ccc;
             padding-bottom: 5px;
         }
         p {
             font-size: 20px;
-            color: #555;
+            color: #000;
             margin-bottom: 5px;
         }
         .author-date {
@@ -63,6 +63,8 @@
         <p class="link">
             <a href="{% url 'board' %}">게시판</a>으로 이동하기
         </p>
+        <a href="{% url 'edit' post.id %}">수정하기</a>
+        <a href="{% url 'delete' post.id %}">삭제하기</a>
     </div>
 </body>
 </html>
