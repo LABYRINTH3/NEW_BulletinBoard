@@ -1,12 +1,13 @@
 from django.contrib.auth import get_user_model
 from django.shortcuts import render, redirect, get_object_or_404
 from django.utils import timezone
-
+from django.contrib.auth.decorators import login_required
 from .models import Post
 
 CustomUser = get_user_model()
 
 
+@login_required
 def create_post(request, user_id):
     if request.method == 'POST':
         title = request.POST.get('title')
@@ -33,19 +34,21 @@ def home(request):
     return render(request, 'pages/home.html')
 
 
+
 def delete(request, id):
     delete_blog = Post.objects.get(id=id)
     delete_blog.delete()
     return redirect('board')
 
 
+
 def edit(request, id):
-    edit_post = Post.objects.get(id= id)
+    edit_post = Post.objects.get(id=id)
     return render(request, 'pages/edit.html', {'post': edit_post})
 
 
 def update(request, id):
-    update_post = Post.objects.get(id= id)
+    update_post = Post.objects.get(id=id)
     update_post.title = request.POST['title']
     # update_post.author = request.POST['author']
     update_post.content = request.POST['content']

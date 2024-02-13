@@ -3,9 +3,75 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ post.title }}</title>
+    <title>Edit Post</title>
+        <style>
+        /* General styles for the entire page */
+        body {
+            font-family: Arial, sans-serif; /* Font for the entire page */
+            margin: 0; /* Remove default margin */
+            padding: 0; /* Remove default padding */
+            background-color: #d5bdaf; /* Background color of the page */
+        }
+        
+        /* Styles for the form */
+        form {
+            max-width: 600px; /* Maximum width of the form */
+            margin: 20px auto; /* Center the form horizontally with some space from top and bottom */
+            padding: 20px; /* Add padding inside the form */
+            background-color: #F8EFE5; /* Background color of the form */
+            border-radius: 8px; /* Rounded corners for the form */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Shadow effect for the form */
+        }
+        
+        /* Styles for the heading */
+        h1 {
+            text-align: center; /* Center-align the heading */
+        }
+        
+        /* Styles for labels */
+        label {
+            font-weight: bold; /* Make labels bold */
+        }
+        
+        /* Styles for text input and textarea */
+        input[type="text"],
+        textarea {
+            width: 100%; /* Make inputs and textarea span the entire width */
+            padding: 10px; /* Add padding inside inputs and textarea */
+            margin-bottom: 10px; /* Add space below inputs and textarea */
+            border: 1px solid #ccc; /* Border for inputs and textarea */
+            border-radius: 4px; /* Rounded corners for inputs and textarea */
+            box-sizing: border-box; /* Include padding and border in the width and height */
+        }
+        
+        /* Adjust the height of the textarea below */
+        textarea {
+            height: 400px; /* You can change this value to adjust the height of the textarea */
+        }
+        
+        /* Styles for the submit button */
+        button[type="submit"] {
+            background-color: #8a817c; /* Background color of the submit button */
+            color: white; /* Text color of the submit button */
+            padding: 10px 20px; /* Padding inside the submit button */
+            border: none; /* Remove border of the submit button */
+            border-radius: 4px; /* Rounded corners for the submit button */
+            cursor: pointer; /* Change cursor to pointer on hover */
+        }
+        
+        /* Hover effect for the submit button */
+        button[type="submit"]:hover {
+            background-color: #463f3a; /* Change background color on hover */
+        }
+        
+        /* Styles for the paragraph */
+        p {
+            text-align: center; /* Center-align the paragraph */
+        }
+    </style>
 </head>
 <body>
+    <h1>게시글 수정</h1>
     <form action="{% url 'update' post.id %}" method="POST">
         {% csrf_token %}
         <label for="title">제목</label>
@@ -16,7 +82,7 @@
 {#        <br>#}
         <label for="content">내용</label>
         <textarea name="content" id="content" cols="30" rows="10">{{post.content}}</textarea>
-        <button type="submit">제출</button>
+        <button type="submit">수정</button>
     </form>
 </body>
 </html>

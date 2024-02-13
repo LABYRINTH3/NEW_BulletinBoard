@@ -49,8 +49,8 @@
             margin-top: 20px; /* Add some space above the table */
         }
         th, td {
-            padding: 8px; /* Add padding inside table cells */
-            text-align: left; /* Align text to the left within cells */
+            padding: 8px 12px; /* Add padding inside table cells (adjust as needed) */
+            text-align: center; /* Align text to the left within cells */
             border-bottom: 1px solid #ddd; /* Add a bottom border to table cells */
         }
         th {
@@ -70,23 +70,28 @@
     <!-- Main content container -->
     <div class="container">
         <!-- Displaying current user's account information -->
-        <div style="position: absolute; top: 10px; right: 10px;">
-            {% if user.is_authenticated %}
-                Logged in as: {{ user.customuser.CustomUser }} 
-{#                | <a href="{% url 'logout' %}">Logout</a>#}
-            {% else %}
-                <a href="{% url 'login' %}" style="color: #000;">Login</a> | <a href="{% url 'signup' %}" style="color: #000;">Signup</a>
-            {% endif %}
-        </div>
-
+    <div style="position: absolute; top: 10px; right: 10px;">
+        {% if user.is_authenticated %}
+            {{ user.username }}님 환영합니다 | <a href="{% url 'logout' %}">Logout</a>
+        {% else %}
+            <a href="{% url 'login' %}" style="color: #000;">Login</a> | <a href="{% url 'signup' %}" style="color: #000;">Signup</a>
+        {% endif %}
+    </div>
         <!-- Heading -->
         <h1><a href="{% url 'home' %}">게시판</a></h1>
-        
+
         <!-- Link to create a new post -->
-        <p class="create-post">
-            <a href="{% url 'login' %}" style="color: #000;">게시글 작성</a>
-        </p>
-        
+        {% if user.is_authenticated %}
+            <p class="create-post">
+                <a href="{% url 'create_post' request.user.id %}" style="color: #000;">게시글 작성</a>
+            </p>
+        {% else %}
+            <p class="create-post">
+                <a href="{% url 'login' %}" style="color: #000;">로그인 후에 게시글 작성이 가능합니다</a>
+            </p>
+        {% endif %}
+
+
         <!-- List of posts -->
         <table>
             <thead>

@@ -51,6 +51,13 @@
             left: 50%; /* Align horizontally to center */
             transform: translateX(-50%); /* Move left by 50% of its own width */
         }
+        .link-container {
+            margin-top: auto; /* Push the link container to the bottom */
+            display: flex; /* Use flexbox for alignment */
+            justify-content: center; /* Center-align horizontally */
+            align-items: flex-end; /* Align items to the bottom */
+        }
+
     </style>
 </head>
 <body>
@@ -60,11 +67,17 @@
         <br>
         <p class="author-date">작성자: {{ post.author }} | 게시일: {{ post.created_at }}</p>
         <br>
+        {% if user.is_authenticated and user == post.author %}
+        <span class="link-container">
+            <a href="{% url 'edit' post.id %}">수정하기</a>
+            &ensp;
+            <a href="{% url 'delete' post.id %}">삭제하기</a>
+        </span>
+        {% endif %}
         <p class="link">
             <a href="{% url 'board' %}">게시판</a>으로 이동하기
         </p>
-        <a href="{% url 'edit' post.id %}">수정하기</a>
-        <a href="{% url 'delete' post.id %}">삭제하기</a>
     </div>
 </body>
+
 </html>

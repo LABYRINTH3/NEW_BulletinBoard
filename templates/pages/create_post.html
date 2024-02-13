@@ -51,7 +51,7 @@
         
         /* Styles for the submit button */
         button[type="submit"] {
-            background-color: #4CAF50; /* Background color of the submit button */
+            background-color: #8a817c; /* Background color of the submit button */
             color: white; /* Text color of the submit button */
             padding: 10px 20px; /* Padding inside the submit button */
             border: none; /* Remove border of the submit button */
@@ -61,12 +61,13 @@
         
         /* Hover effect for the submit button */
         button[type="submit"]:hover {
-            background-color: #45a049; /* Change background color on hover */
+            background-color: #463f3a; /* Change background color on hover */
         }
         
         /* Styles for the paragraph */
         p {
             text-align: center; /* Center-align the paragraph */
+            text-decoration: none;
         }
     </style>
 </head>
@@ -74,9 +75,9 @@
     <h1>게시글 작성</h1>
     <form method="post">
         {% csrf_token %}
-        <label for="title">제목:</label><br>
+        <label for="title">제목</label><br>
         <input type="text" id="title" name="title"><br>
-        <label for="content">내용:</label><br>
+        <label for="content">내용</label><br>
         <textarea id="content" name="content"></textarea><br>
         <button type="submit">게시글 생성</button>
     </form>
