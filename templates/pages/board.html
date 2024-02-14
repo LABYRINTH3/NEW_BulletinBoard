@@ -42,6 +42,15 @@
         .create-post a:hover {
             text-decoration: underline; /* Add underline on hover */
         }
+        .title-length{
+            width: 30%;
+        }
+        .time-length{
+            width: 30%;
+        }
+        .id-length{
+            width:8%;
+        }
         /* Table styles */
         table {
             width: 100%; /* Make the table fill its container */
@@ -49,7 +58,7 @@
             margin-top: 20px; /* Add some space above the table */
         }
         th, td {
-            padding: 8px 12px; /* Add padding inside table cells (adjust as needed) */
+            padding: 8px 10px; /* Add padding inside table cells (adjust as needed) */
             text-align: center; /* Align text to the left within cells */
             border-bottom: 1px solid #ddd; /* Add a bottom border to table cells */
         }
@@ -63,6 +72,23 @@
         }
         a:hover {
             text-decoration: underline; /* Add underline on hover */
+        }
+        /* Media query for mobile devices */
+        @media only screen and (max-width: 600px) {
+            table {
+                font-size: 14px; /* Adjust font size for smaller screens */
+            }
+            .container {
+                width:93%;
+                padding: 10px; /* Adjust padding for smaller screens */
+            }
+            h1{
+                font-size: 28px;
+            }
+            .create-post {
+                font-size: 14px; /* Adjust font size for smaller screens */
+                padding: 5px 8px; /* Adjust padding for smaller screens */
+            }
         }
     </style>
 </head>
@@ -79,7 +105,6 @@
     </div>
         <!-- Heading -->
         <h1><a href="{% url 'home' %}">게시판</a></h1>
-
         <!-- Link to create a new post -->
         {% if user.is_authenticated %}
             <p class="create-post">
@@ -96,10 +121,10 @@
         <table>
             <thead>
                 <tr>
-                    <th>#</th>
-                    <th>제목</th>
+                    <th class = "id-length">#</th>
+                    <th class = "title-length">제목</th>
                     <th>글쓴이</th>
-                    <th>작성 시간</th>
+                    <th class = "time-length">작성 시간</th>
                 </tr>
             </thead>
             <tbody>

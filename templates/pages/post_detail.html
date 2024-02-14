@@ -13,7 +13,7 @@
         }
         .container {
             max-width: 800px;
-            height: 80vh;
+            height: 85vh;
             margin: 20px auto;
             background-color: #fff;
             padding: 20px;
@@ -57,7 +57,13 @@
             justify-content: center; /* Center-align horizontally */
             align-items: flex-end; /* Align items to the bottom */
         }
-
+        /* Media query for mobile devices */
+        @media only screen and (max-width: 600px) {
+            .container {
+                width: 93%;
+                padding: 10px; /* Adjust padding for smaller screens */
+            }
+        }
     </style>
 </head>
 <body>
