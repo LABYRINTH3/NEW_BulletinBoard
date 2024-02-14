@@ -22,8 +22,14 @@ Initially, Django's default user model was used, but I opted to create a custom 
 ## Data Validation Enhancement
 To ensure data consistency, an error message is displayed to the user if the password and confirmation password do not match. This is achieved by utilizing the `clean` method to validate the data and raise an error.
 
-## Authentication and Authorization Issue
-There is a current issue where the edit and delete functionalities are accessible without requiring users to log in.
+## Authentication and Authorization Issue (FIXED)
+~~There is a current issue where the edit and delete functionalities are accessible without requiring users to log in.~~
+
+## Update (14th February 2024)
+- Added a new update box for displaying additional features and fixes.
+- Reset the screen size for mobile compatibility.
+- Modified the edit and delete functions to be available only when logged in.
+- Implemented a security fix for the delete functionality. Now, users can only delete posts if the ID of the logged-in user matches the ID of the post author. If they don't match, users are redirected to another page.
 
 ## How to Run the Project
 1. Install Django and necessary libraries: `pip install django`
@@ -33,7 +39,4 @@ There is a current issue where the edit and delete functionalities are accessibl
 
 ## Additional Notes
 - For more detailed information about the project, please refer to the code comments and source code.
-- The project may be updated continuously, and feedback or feature suggestions are always welcome.
-
-## Future Plans
-To address the authentication and authorization issue, the next step is to implement user authentication and authorization checks for the edit and delete functionalities. This will ensure that only authorized users can perform these actions.
+- Feedback or feature suggestions are always welcome.
