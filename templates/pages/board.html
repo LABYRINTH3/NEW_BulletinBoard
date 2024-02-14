@@ -27,6 +27,8 @@
             color: black; /* Set the color of the heading */
             border-bottom: 1px solid #000; /* Add a bottom border to the heading */
             padding-bottom: 10px; /* Add some padding below the heading */
+            padding-top: 10px;
+
         }
         /* Link styles */
         .create-post {
@@ -74,6 +76,18 @@
         a:hover {
             text-decoration: underline; /* Add underline on hover */
         }
+        .user-menu {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            margin-top: 8px;
+        }
+        
+        .login-link,
+        .signup-link {
+            color: #000;
+        }
+
         /* Media query for mobile devices */
         @media only screen and (max-width: 600px) {
             table {
@@ -91,17 +105,18 @@
                 padding: 5px 8px; /* Adjust padding for smaller screens */
             }
         }
+        
     </style>
 </head>
 <body>
     <!-- Main content container -->
     <div class="container">
         <!-- Displaying current user's account information -->
-    <div style="position: absolute; top: 10px; right: 10px;">
+    <div class="user-menu">
         {% if user.is_authenticated %}
             {{ user.username }}님 환영합니다 | <a href="{% url 'logout' %}">Logout</a>
         {% else %}
-            <a href="{% url 'login' %}" style="color: #000;">Login</a> | <a href="{% url 'signup' %}" style="color: #000;">Signup</a>
+            <a href="{% url 'login' %}" class="login-link">Login</a> | <a href="{% url 'signup' %}" class="signup-link">Signup</a>
         {% endif %}
     </div>
         <!-- Heading -->
