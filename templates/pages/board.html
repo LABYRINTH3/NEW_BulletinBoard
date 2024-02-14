@@ -134,7 +134,7 @@
                         <td>{{ post.id }}</td>
                         <td><a href="{% url 'post_detail' post_id=post.id %}">{{ post.title }}</a></td>
                         <td>{{ post.author }}</td>
-                        <td>{{ post.created_at }}</td>
+                        <td>{{ post.created_at|date:"Y-m-d H:i" }}</td>
                     </tr>
                 {% endfor %}
             </tbody>
