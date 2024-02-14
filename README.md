@@ -26,7 +26,6 @@ To ensure data consistency, an error message is displayed to the user if the pas
 ~~There is a current issue where the edit and delete functionalities are accessible without requiring users to log in.~~
 
 ## Update (14th February 2024)
-- Added a new update box for displaying additional features and fixes.
 - Reset the screen size for mobile compatibility.
 - Modified the edit and delete functions to be available only when logged in.
 - Implemented a security fix for the delete functionality. Now, users can only delete posts if the ID of the logged-in user matches the ID of the post author. If they don't match, users are redirected to another page.
