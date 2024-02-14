@@ -91,5 +91,18 @@
         <textarea name="content" id="content" cols="30" rows="10">{{post.content}}</textarea>
         <button type="submit">수정</button>
     </form>
+    <script>
+        window.onload = function() {
+            var form = document.querySelector('form');
+            form.onsubmit = function(event) {
+                var title = document.querySelector('#title').value.trim();
+                var content = document.querySelector('#content').value.trim();
+                if (!title || !content) {
+                    event.preventDefault();  // 폼 제출을 막음
+                    alert('제목과 내용은 필수 입력 사항입니다.');
+                }
+            }
+        };
+    </script>
 </body>
 </html>
