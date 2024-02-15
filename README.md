@@ -22,7 +22,7 @@ Initially, Django's default user model was used, but I opted to create a custom 
 ## Data Validation Enhancement
 To ensure data consistency, an error message is displayed to the user if the password and confirmation password do not match. This is achieved by utilizing the `clean` method to validate the data and raise an error.
 
-## Authentication and Authorization Issue (FIXED)
+## Authorization Issue (FIXED)
 ~~There is a current issue where the edit and delete functionalities are accessible without requiring users to log in.~~
 
 ## Update (14th February 2024)
@@ -30,12 +30,28 @@ To ensure data consistency, an error message is displayed to the user if the pas
 - Modified the edit and delete functions to be available only when logged in.
 - Implemented a security fix for the delete functionality. Now, users can only delete posts if the ID of the logged-in user matches the ID of the post author. If they don't match, users are redirected to another page.
 
+## Update (15th February 2024)
+- Implemented a safeguard against unintended data loss: when adding a blank title or body, a pop-up window now appears or the page reloads to prevent accidental loss of written content. This is achieved by utilizing the `required` attribute in HTML forms.
+- Enhanced password security: Previously, passwords were stored as strings. Now, all passwords, including existing ones, are encrypted and securely saved.
+
 ## How to Run the Project
 1. Install Django and necessary libraries: `pip install django`
 2. Perform database migration by navigating to the project folder and running: `python manage.py makemigrations` followed by `python manage.py migrate`
 3. Run the server: `python manage.py runserver`
 4. Access the bulletin board by opening a web browser and visiting `http://127.0.0.1:8000/`
 
+### Additional Steps:
+- **Using a Virtual Environment (Recommended)**
+  
+- **Creating a Superuser**:
+  Django superuser account to access the admin interface.
+  ```
+  python manage.py createsuperuser
+  ```
+  Go to `http://127.0.0.1:8000/admin/` and login with the superuser id.
+  
+  Please ensure that you have Python installed on your system before proceeding with the installation steps.
+
 ## Additional Notes
 - For more detailed information about the project, please refer to the code comments and source code.
-- Feedback or feature suggestions are always welcome.
+- Feedback or feature suggestions are welcome.
