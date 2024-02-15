@@ -19,6 +19,7 @@ def create_post(request, user_id):
             return render(request, 'pages/create_post.html')
         author = CustomUser.objects.get(pk=user_id)  # 현재 로그인한 사용자를 가져옵니다.
         new_post = Post.objects.create(title=title, content=content, author=author, created_at=timezone.now())
+        messages.success(request, "Post created successfully!")
         # 게시글 작성 후, 해당 글의 상세 페이지로 이동하도록 redirect
         return redirect('post_detail', post_id=new_post.id)
     else:

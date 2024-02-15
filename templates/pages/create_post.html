@@ -83,9 +83,9 @@
     <form method="post">
         {% csrf_token %}
         <label for="title">제목</label><br>
-        <input type="text" id="title" name="title"><br>
+        <input type="text" id="title" name="title" required><br>
         <label for="content">내용</label><br>
-        <textarea id="content" name="content"></textarea><br>
+        <textarea id="content" name="content" required></textarea><br>
         <button type="submit">게시글 생성</button>
     </form>
     <p>
