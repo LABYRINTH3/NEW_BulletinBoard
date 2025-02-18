@@ -13,27 +13,27 @@
 
 - **로딩 화면**  
   - 게시판과 로그인 창으로 갈 수 있는 페이지  
-  - <img src="./img/loading.png" alt="로딩 화면 샘플" width="300"/>
+  - <img src="./image/loading.png" alt="로딩 화면 샘플" width="300"/>
 
 - **메인 페이지**  
   - 게시글 목록 테이블, “글 작성” 버튼  
-  - <img src="./img/main.png" alt="메인 페이지 샘플" width="300"/>
+  - <img src="./image/main.png" alt="메인 페이지 샘플" width="300"/>
 
 - **게시글 작성**
   - 게시글 작성 페이지
-  - <img src="./img/createpost.png" alt="게시글 생성 샘플" width="300"/>
+  - <img src="./image/createpost.png" alt="게시글 생성 샘플" width="300"/>
    
 - **게시글 상세 보기**  
   - 게시글 내용, 작성자, 작성일, 수정/삭제 버튼  
-  - <img src="./img/detail.png" alt="게시글 상세 보기 샘플" width="300"/>
+  - <img src="./image/detail.png" alt="게시글 상세 보기 샘플" width="300"/>
 
 - **로그인/회원가입 페이지**  
   - 사용자 입력 폼 및 에러 메시지 표시  
-  - <img src="./img/login.png" alt="로그인 페이지 샘플" width="300"/> <img src="./img/createaccount.png" alt="계정생성 페이지 샘플" width="300"/>
+  - <img src="./image/login.png" alt="로그인 페이지 샘플" width="300"/> <img src="./image/createaccount.png" alt="계정생성 페이지 샘플" width="300"/>
 
 - **비밀번호 암호화**
   - 비밀번호 암호화 과정을 거침
-  - <img src="./img/admin.png" alt="어드민 샘플" width="300"/>
+  - <img src="./image/admin.png" alt="어드민 샘플" width="300"/>
 
 
 
